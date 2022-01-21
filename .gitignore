@@ -2,5 +2,6 @@ bin/
 
 *.prg.debug.xml
 *.prg
+*-settings.json
 
 .DS_Store
