@@ -1,1 +1,4 @@
-bin/
+*.prg.debug.xml
+*.prg
+
+.DS_Store
