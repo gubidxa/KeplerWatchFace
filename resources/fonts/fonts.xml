@@ -1,8 +1,8 @@
 <fonts>
   <font id="IconsFont" filename="icons-25px.fnt" antialias="true" />
-  <font id="HoursFont" filename="barlow_96_semi-bold.fnt" antialias="true" />
-  <font id="MinutesFont" filename="barlow_96_light.fnt" antialias="true" />
-  <font id="DateFont" filename="barlow_24_regular.fnt" antialias="true" />
-  <font id="PrimaryIndicatorFont" filename="barlow_21_regular.fnt" antialias="true" />
-  <font id="SecondaryIndicatorFont" filename="barlow_21_regular.fnt" antialias="true" />
+  <font id="HoursFont" filename="streetvertising_96_bold.fnt" antialias="true" />
+  <font id="MinutesFont" filename="streetvertising_96_regular.fnt" antialias="true" />
+  <font id="DateFont" filename="protomolecule_23_regular.fnt" antialias="true" />
+  <font id="PrimaryIndicatorFont" filename="protomolecule_20_regular.fnt" antialias="true" />
+  <font id="SecondaryIndicatorFont" filename="protomolecule_20_regular.fnt" antialias="true" />
 </fonts>
