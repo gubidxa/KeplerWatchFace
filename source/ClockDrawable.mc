@@ -10,7 +10,8 @@ class ClockDrawable extends WatchUi.Drawable {
     private var dateFont = null;
     private var hoursFont = null;
     private var minutesFont = null;
-    private var dateFmtDict = null;
+    private var daysFormat = null;
+    private var monthsFormat = null;
 
     function initialize(params) {
         Drawable.initialize(params);
@@ -18,7 +19,8 @@ class ClockDrawable extends WatchUi.Drawable {
         dateFont = WatchUi.loadResource(Rez.Fonts.DateFont);
         hoursFont = WatchUi.loadResource(Rez.Fonts.HoursFont);
         minutesFont = WatchUi.loadResource(Rez.Fonts.MinutesFont);
-        dateFmtDict = WatchUi.loadResource(Rez.JsonData.DateFormatDict);
+        daysFormat = WatchUi.loadResource(Rez.JsonData.DaysFmt);
+        monthsFormat = WatchUi.loadResource(Rez.JsonData.MonthsFmt);
     }
 
     function draw(dc as Dc) as Void {
@@ -35,8 +37,8 @@ class ClockDrawable extends WatchUi.Drawable {
         var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0;
 
         var todayInfo = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-        var dayOfWeek = dateFmtDict["days"][todayInfo.day_of_week - 1];
-        var month = dateFmtDict["months"][todayInfo.month - 1];
+        var dayOfWeek = daysFormat[todayInfo.day_of_week - 1];
+        var month = monthsFormat[todayInfo.month - 1];
         var today = Lang.format("$1$ $2$ $3$", [dayOfWeek, todayInfo.day.format("%02d"), month]);
 
         var dateDim = dc.getTextDimensions(today, dateFont);

@@ -1,5 +1,4 @@
-<strings>
-
+<resources>
     <string id="AppName">KeplerWatchFace</string>
 
     <string id="BackgroundColorTitle">Background Color</string>
@@ -13,4 +12,6 @@
     <string id="ColorBlue">Blue</string>
     <string id="ColorRed">Red</string>
 
-</strings>
+    <jsonData id="MonthsFmt">["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]</jsonData>
+    <jsonData id="DaysFmt">["sun", "mon", "tue", "wed", "thu", "fri", "sat"]</jsonData>
+</resources>
