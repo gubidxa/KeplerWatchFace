@@ -41,7 +41,7 @@ class ClockDrawable extends WatchUi.Drawable {
 
         var dateDim = dc.getTextDimensions(today, dateFont);
         var dateX = dc.getWidth() * 0.5;
-        var dateY = dc.getHeight() * 0.60 - dateDim[1] / 2.0;
+        var dateY = (dc.getHeight() * 0.60 - dateDim[1] / 2.0) + 2;
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         dc.drawText(dateX, dateY, dateFont, today, Graphics.TEXT_JUSTIFY_CENTER);

@@ -6,4 +6,9 @@
         <param name="refX">0.5</param>
         <param name="refY">0.85</param>
     </drawable>
+    <drawable id="Battery" class="BatteryIndicator">
+        <param name="color">0xfff000</param>
+        <param name="refX">0.5</param>
+        <param name="refY">0.05</param>
+    </drawable>
 </layout>
