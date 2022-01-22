@@ -6,6 +6,4 @@
         <param name="refX">0.5</param>
         <param name="refY">0.85</param>
     </drawable>
-    <!--label id="StepsLabel" x="center" y="top" font="Graphics.FONT_SYSTEM_XTINY" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" /-->
-    <!--label id="TimeLabel" x="center" y="center" font="Graphics.FONT_SYSTEM_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="Graphics.COLOR_BLUE" /-->
 </layout>
