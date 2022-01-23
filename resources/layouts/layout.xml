@@ -1,14 +1,24 @@
 <layout id="WatchFace">
     <drawable class="Background" />
+    <drawable id="Battery" class="BatteryIndicator">
+        <param name="color">0x55ffff</param>
+        <param name="refX">0.5</param>
+        <param name="refY">0.05</param>
+    </drawable>
     <drawable id="Clock" class="ClockDrawable" />
     <drawable id="Steps" class="StepsIndicator">
         <param name="color">0xff5500</param>
+        <param name="refX">0.25</param>
+        <param name="refY">0.7</param>
+    </drawable>
+    <drawable id="Calories" class="CaloriesIndicator">
+        <param name="color">0xff0000</param>
+        <param name="refX">0.75</param>
+        <param name="refY">0.7</param>
+    </drawable>
+    <drawable id="Bluetooth" class="BluetoothIndicator">
+        <param name="color">0xffffff</param>
         <param name="refX">0.5</param>
         <param name="refY">0.85</param>
-    </drawable>
-    <drawable id="Battery" class="BatteryIndicator">
-        <param name="color">0xfff000</param>
-        <param name="refX">0.5</param>
-        <param name="refY">0.05</param>
     </drawable>
 </layout>

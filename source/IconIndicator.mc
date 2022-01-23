@@ -11,7 +11,7 @@ class IconIndicator extends WatchUi.Drawable {
     protected var infoText = "";
     private var iconsFont = null;
     private var infoFont = null;
-    private var color = null;
+    protected var color = null;
     private var refX = null;
     private var refY = null;
 

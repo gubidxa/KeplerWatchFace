@@ -13,7 +13,7 @@ class BatteryIndicator extends IconIndicator {
         var stats = System.getSystemStats();
         var battery = stats.battery;
 
-        if (Utils.checkVersion([3, 0, 0]) && stats.charging)  {
+        if (stats has :charging && stats.charging)  {
             iconText = "l";
         } else if (battery >= 90) {
             iconText = "h";
