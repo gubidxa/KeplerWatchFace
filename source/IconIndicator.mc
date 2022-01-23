@@ -21,23 +21,32 @@ class IconIndicator extends WatchUi.Drawable {
         refX = params[:refX] as Number;
         refY = params[:refY] as Number;
         color = params[:color];
-    
-        iconsFont = WatchUi.loadResource(Rez.Fonts.IconsFont);
-        infoFont = WatchUi.loadResource(Rez.Fonts.PrimaryIndicatorFont);
+        iconsFont = params[:iconsFont];
+        infoFont = params[:infoFont];
+    }
+
+    function setIconsFont(newIconsFont) {
+        iconsFont = newIconsFont;
+    }
+
+    function setInfoFont(newInfoFont) {
+        infoFont = newInfoFont;
     }
 
     function draw(dc as Dc) as Void {
-        var iconDim = dc.getTextDimensions(iconText, iconsFont);
-        var infoDim = dc.getTextDimensions(infoText, infoFont);
+        if (iconsFont != null && infoFont != null){
+            var iconDim = dc.getTextDimensions(iconText, iconsFont);
+            var infoDim = dc.getTextDimensions(infoText, infoFont);
 
-        width = iconDim[0] + infoDim[0];
-        height = iconDim[1];
+            width = iconDim[0] + infoDim[0];
+            height = iconDim[1];
 
-        locX = dc.getWidth() * refX - width / 2.0;
-        locY = dc.getHeight() * refY;
+            locX = dc.getWidth() * refX - width / 2.0;
+            locY = dc.getHeight() * refY;
 
-        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(locX, locY, iconsFont, iconText, Graphics.TEXT_JUSTIFY_LEFT);
-        dc.drawText(locX + iconDim[0], locY, infoFont, infoText, Graphics.TEXT_JUSTIFY_LEFT);
+            dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(locX, locY, iconsFont, iconText, Graphics.TEXT_JUSTIFY_LEFT);
+            dc.drawText(locX + iconDim[0], locY, infoFont, infoText, Graphics.TEXT_JUSTIFY_LEFT);
+        }
     }
 }

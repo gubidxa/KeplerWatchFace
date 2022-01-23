@@ -1,3 +1,6 @@
 <drawables>
-    <bitmap id="LauncherIcon" filename="launcher_icon.png" />
+    <bitmap id="LauncherIcon" filename="launcher-icon.png" />
+    <bitmap id="Kepler69c" filename="../drawables/kepler-69c.jpg" x="0" y="0">
+        <palette disableTransparency="false" />
+    </bitmap>
 </drawables>

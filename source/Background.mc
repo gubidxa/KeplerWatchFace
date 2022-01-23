@@ -5,18 +5,20 @@ import Toybox.WatchUi;
 
 class Background extends WatchUi.Drawable {
 
-    function initialize() {
-        var dictionary = {
-            :identifier => "Background"
-        };
+    private var bgImage = null;
 
-        Drawable.initialize(dictionary);
+    function initialize(params) {
+        Drawable.initialize(params);
+        bgImage = params[:bgImage];
     }
 
     function draw(dc as Dc) as Void {
         // Set the background color then call to clear the screen
         dc.setColor(Graphics.COLOR_TRANSPARENT, getApp().getProperty("BackgroundColor") as Number);
         dc.clear();
+        if (bgImage != null) {
+            dc.drawBitmap(0, 0, bgImage);
+        }
     }
 
 }

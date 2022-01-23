@@ -13,8 +13,9 @@ class BluetoothIndicator extends IconIndicator {
     }
 
     function draw(dc as Dc) as Void {
-        iconText = System.getDeviceSettings().phoneConnected ? "b" : "B";
-        color = System.getDeviceSettings().phoneConnected ? 0xffffff : 0xaaaaaa;
+        var phoneConnected = System.getDeviceSettings().phoneConnected;
+        iconText = phoneConnected ? "b" : "B";
+        color = phoneConnected ? 0xffffff : 0xaaaaaa;
         IconIndicator.draw(dc);
     }
 }

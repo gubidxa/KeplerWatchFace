@@ -7,16 +7,37 @@ import Toybox.WatchUi;
 
 class ClockDrawable extends WatchUi.Drawable {
 
-    private var dateFont = null;
-    private var hoursFont = null;
-    private var minutesFont = null;
+    private const DATE_FONT = WatchUi.loadResource(Rez.Fonts.DateFont);
+    private const HOURS_FONT = WatchUi.loadResource(Rez.Fonts.HoursFont);
+    private const MINUTES_FONT = WatchUi.loadResource(Rez.Fonts.MinutesFont);
+
+    private const MONTHS_FMT = [
+        WatchUi.loadResource(Rez.Strings.MonthJan),
+        WatchUi.loadResource(Rez.Strings.MonthFeb),
+        WatchUi.loadResource(Rez.Strings.MonthMar),
+        WatchUi.loadResource(Rez.Strings.MonthApr),
+        WatchUi.loadResource(Rez.Strings.MonthMay),
+        WatchUi.loadResource(Rez.Strings.MonthJun),
+        WatchUi.loadResource(Rez.Strings.MonthJul),
+        WatchUi.loadResource(Rez.Strings.MonthAug),
+        WatchUi.loadResource(Rez.Strings.MonthSep),
+        WatchUi.loadResource(Rez.Strings.MonthOct),
+        WatchUi.loadResource(Rez.Strings.MonthNov),
+        WatchUi.loadResource(Rez.Strings.MonthDec)
+    ];
+
+    private const DAYS_FMT = [
+        WatchUi.loadResource(Rez.Strings.DaySun),
+        WatchUi.loadResource(Rez.Strings.DayMon),
+        WatchUi.loadResource(Rez.Strings.DayTue),
+        WatchUi.loadResource(Rez.Strings.DayWed),
+        WatchUi.loadResource(Rez.Strings.DayThu),
+        WatchUi.loadResource(Rez.Strings.DayFri),
+        WatchUi.loadResource(Rez.Strings.DaySat)
+    ];
 
     function initialize(params) {
         Drawable.initialize(params);
-
-        dateFont = WatchUi.loadResource(Rez.Fonts.DateFont);
-        hoursFont = WatchUi.loadResource(Rez.Fonts.HoursFont);
-        minutesFont = WatchUi.loadResource(Rez.Fonts.MinutesFont);
     }
 
     function draw(dc as Dc) as Void {
@@ -29,26 +50,26 @@ class ClockDrawable extends WatchUi.Drawable {
         var hourData = hour.format("%02d");
         var minData = clockTime.min.format("%02d");
 
-        var hoursDim = dc.getTextDimensions(hourData, hoursFont);
+        var hoursDim = dc.getTextDimensions(hourData, HOURS_FONT);
         var hoursX = dc.getWidth() * 0.485;
         var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - 1;
 
-        var minutesDim = dc.getTextDimensions(minData, minutesFont);
+        var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
         var minutesX = dc.getWidth() * 0.515;
         var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - 1;
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-        var dayOfWeek = WatchUi.loadResource(Utils.DaysSymb[today.day_of_week - 1]);
-        var month = WatchUi.loadResource(Utils.MonthsSymb[today.month - 1]);
+        var dayOfWeek = DAYS_FMT[today.day_of_week - 1];
+        var month = MONTHS_FMT[today.month - 1];
         var dateData = Lang.format("$1$ $2$ $3$", [dayOfWeek, today.day.format("%02d"), month]);
 
-        var dateDim = dc.getTextDimensions(dateData, dateFont);
+        var dateDim = dc.getTextDimensions(dateData, DATE_FONT);
         var dateX = dc.getWidth() * 0.5;
         var dateY = (dc.getHeight() * 0.60 - dateDim[1] / 2.0) + 3;
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(dateX, dateY, dateFont, dateData, Graphics.TEXT_JUSTIFY_CENTER);
-        dc.drawText(hoursX, hoursY, hoursFont, hourData, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(minutesX, minutesY, minutesFont, minData, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(dateX, dateY, DATE_FONT, dateData, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(hoursX, hoursY, HOURS_FONT, hourData, Graphics.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(minutesX, minutesY, MINUTES_FONT, minData, Graphics.TEXT_JUSTIFY_LEFT);
     }
 }
