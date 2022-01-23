@@ -1,0 +1,22 @@
+<strings>
+    <string id="MonthJan">janeiro</string>
+    <string id="MonthFeb">fevereiro</string>
+    <string id="MonthMar">março</string>
+    <string id="MonthApr">abril</string>
+    <string id="MonthMay">maio</string>
+    <string id="MonthJun">junho</string>
+    <string id="MonthJul">julho</string>
+    <string id="MonthAug">agosto</string>
+    <string id="MonthSep">setembro</string>
+    <string id="MonthOct">outubro</string>
+    <string id="MonthNov">novembro</string>
+    <string id="MonthDec">dezembro</string>
+
+    <string id="DaySun">domingo</string>
+    <string id="DayMon">segunda</string>
+    <string id="DayTue">terça</string>
+    <string id="DayWed">quarta</string>
+    <string id="DayThu">quinta</string>
+    <string id="DayFri">sexta</string>
+    <string id="DaySat">sábado</string>
+</strings>

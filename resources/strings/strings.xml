@@ -11,4 +11,25 @@
     <string id="ColorWhite">White</string>
     <string id="ColorBlue">Blue</string>
     <string id="ColorRed">Red</string>
+
+    <string id="MonthJan">january</string>
+    <string id="MonthFeb">february</string>
+    <string id="MonthMar">march</string>
+    <string id="MonthApr">april</string>
+    <string id="MonthMay">may</string>
+    <string id="MonthJun">june</string>
+    <string id="MonthJul">july</string>
+    <string id="MonthAug">august</string>
+    <string id="MonthSep">september</string>
+    <string id="MonthOct">october</string>
+    <string id="MonthNov">november</string>
+    <string id="MonthDec">december</string>
+
+    <string id="DaySun">sunday</string>
+    <string id="DayMon">monday</string>
+    <string id="DayTue">tuesay</string>
+    <string id="DayWed">wednesday</string>
+    <string id="DayThu">thursday</string>
+    <string id="DayFri">friday</string>
+    <string id="DaySat">saturday</string>
 </strings>
