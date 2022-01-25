@@ -23,7 +23,7 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
 
         background = new Background({
             :identifier => "Background",
-            :bgImage => WatchUi.loadResource(Rez.Drawables.Kepler69c)
+            :bgImage => WatchUi.loadResource(Rez.Drawables.Kepler22b)
         });
         clockView = new ClockDrawable({ :identifier => "Clock"});
         batteryIndicator = new BatteryIndicator({

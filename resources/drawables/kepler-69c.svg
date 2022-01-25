@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 240 240"
+   width="240"
+   height="240"
+   version="1.1"
+   id="kepler69c"
+   sodipodi:docname="kepler-69c.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+    <defs>
+        <filter id="atmosphere-filter">
+            <feTurbulence baseFrequency="0.01 0.018" seed="0" numOctaves="7"  />
+            <feComposite operator="in" in="" in2="SourceGraphic" />
+        </filter>
+    </defs>
+    <g class="planet">
+        <circle
+            cx="182"
+            cy="120"
+            r="96"
+            fill="#0055aa"
+            stroke="#0055aa"
+            stroke-width="4"
+            style="stroke-opacity: 0.4;"/>
+        <circle
+            cx="182"
+            cy="120"
+            r="96"
+            fill="#ffffaa" 
+            filter="url('#atmosphere-filter')" />
+    </g>
+</svg>

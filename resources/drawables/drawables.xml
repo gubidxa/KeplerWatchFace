@@ -1,6 +1,23 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="launcher-icon.png" />
-    <bitmap id="Kepler69c" filename="../drawables/kepler-69c.jpg" x="0" y="0">
+    <bitmap id="Kepler22b" filename="../drawables/kepler-22b.svg" x="0" y="0" compress="true">
         <palette disableTransparency="false" />
+    </bitmap>
+    <bitmap id="Kepler62e" filename="../drawables/kepler-62e.svg" x="0" y="0" compress="true">
+        <palette disableTransparency="false">
+            <color>0055aa</color>
+            <color>555555</color>
+            <color>ffffff</color>
+            <color>000000</color>
+        </palette>
+    </bitmap>
+    <bitmap id="Kepler62f" filename="../drawables/kepler-62f.svg" x="0" y="0" compress="true">
+        <palette disableTransparency="false" />
+    </bitmap>
+    <bitmap id="Kepler69c" filename="../drawables/kepler-69c.svg" x="0" y="0" compress="true">
+        <palette disableTransparency="false">
+            <color>0055aa</color>
+            <color>fefefe</color>
+        </palette>
     </bitmap>
 </drawables>
