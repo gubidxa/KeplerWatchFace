@@ -16,6 +16,9 @@
         <iq:products>
             <iq:product id="approachs60"/>
             <iq:product id="approachs62"/>
+            <iq:product id="legacyherocaptainmarvel"/>
+            <iq:product id="d2bravo"/>
+            <iq:product id="d2bravo_titanium"/>
             <iq:product id="d2charlie"/>
             <iq:product id="d2delta"/>
             <iq:product id="d2deltapx"/>
@@ -23,8 +26,11 @@
             <iq:product id="legacysagadarthvader"/>
             <iq:product id="descentmk1"/>
             <iq:product id="descentmk2s"/>
+            <iq:product id="fenix3"/>
+            <iq:product id="fenix3_hr"/>
             <iq:product id="fenix5"/>
             <iq:product id="fenix5plus"/>
+            <iq:product id="fenix5s"/>
             <iq:product id="fenix5splus"/>
             <iq:product id="fenix5x"/>
             <iq:product id="fenix5xplus"/>
@@ -33,6 +39,7 @@
             <iq:product id="fenix6s"/>
             <iq:product id="fenix6spro"/>
             <iq:product id="fenix7s"/>
+            <iq:product id="fenixchronos"/>
             <iq:product id="legacyherofirstavenger"/>
             <iq:product id="fr245"/>
             <iq:product id="fr245m"/>
@@ -50,6 +57,7 @@
             <iq:product id="marqdriver"/>
             <iq:product id="marqexpedition"/>
             <iq:product id="marqgolfer"/>
+            <iq:product id="legacysagarey"/>
             <iq:product id="venusq"/>
             <iq:product id="venusqm"/>
             <iq:product id="vivoactive3"/>
@@ -57,6 +65,7 @@
             <iq:product id="vivoactive3m"/>
             <iq:product id="vivoactive3mlte"/>
             <iq:product id="vivoactive4"/>
+            <iq:product id="vivoactive4s"/>
         </iq:products>
         <!--
             Use "Monkey C: Edit Permissions" from the Visual Studio Code command

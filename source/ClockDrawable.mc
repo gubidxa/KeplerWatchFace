@@ -36,15 +36,19 @@ class ClockDrawable extends WatchUi.Drawable {
         WatchUi.loadResource(Rez.Strings.DaySat)
     ];
 
+    private var deviceSettings = System.getDeviceSettings();
+    private var xOffset = 1;
+
     function initialize(params) {
         Drawable.initialize(params);
+        xOffset = deviceSettings.screenHeight == 218 && deviceSettings.screenWidth == 218 ? 5 : 1;
     }
 
     function draw(dc as Dc) as Void {
         var clockTime = System.getClockTime();
 
         var hour = clockTime.hour;
-        hour = (!System.getDeviceSettings().is24Hour && hour > 12)?
+        hour = (!deviceSettings.is24Hour && hour > 12)?
             hour - 12 : hour;
 
         var hourData = hour.format("%02d");
@@ -52,11 +56,11 @@ class ClockDrawable extends WatchUi.Drawable {
 
         var hoursDim = dc.getTextDimensions(hourData, HOURS_FONT);
         var hoursX = dc.getWidth() * 0.485;
-        var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - 1;
+        var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - xOffset;
 
         var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
         var minutesX = dc.getWidth() * 0.515;
-        var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - 1;
+        var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - xOffset;
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
         var dayOfWeek = DAYS_FMT[today.day_of_week - 1];
