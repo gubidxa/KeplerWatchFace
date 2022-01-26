@@ -1,3 +1,6 @@
 <properties>
     <property id="Theme" type="number">0</property>
+    <property id="BackgroundColor" type="number">0x000000</property>
+    <property id="PrimaryColor" type="number">0x55ffff</property>
+    <property id="SecondaryColor" type="number">0x00ffaa</property>
 </properties>

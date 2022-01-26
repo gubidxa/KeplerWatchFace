@@ -4,6 +4,8 @@ import Toybox.WatchUi;
 
 class KeplerWatchFaceApp extends Application.AppBase {
 
+    private var lastTheme = -1;
+
     function initialize() {
         AppBase.initialize();
     }
@@ -23,7 +25,32 @@ class KeplerWatchFaceApp extends Application.AppBase {
 
     // New app settings have been received so trigger a UI update
     function onSettingsChanged() as Void {
+        updateTheme();
         WatchUi.requestUpdate();
+    }
+
+    private function updateTheme() {
+        var primaryColor = getApp().getProperty("PrimaryColor") as Number;
+        var secondaryColor = getApp().getProperty("SecondaryColor") as Number;
+        var theme = getApp().getProperty("Theme") as Number;
+        if (lastTheme != theme) {
+            lastTheme = theme;
+            switch (lastTheme) {
+                case 1:
+                    primaryColor = 0xffaaff;
+                    secondaryColor = 0xff00aa;
+                    break;
+                case 2:
+                    primaryColor = 0x00aaff;
+                    secondaryColor = 0xffffaa;
+                    break;
+                default:
+                    primaryColor = 0x55ffff;
+                    secondaryColor = 0x00ffaa;
+            }
+        }
+        getApp().setProperty("PrimaryColor", primaryColor);
+        getApp().setProperty("SecondaryColor", secondaryColor);
     }
 
 }

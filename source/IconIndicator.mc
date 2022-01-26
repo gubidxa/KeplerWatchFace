@@ -33,6 +33,10 @@ class IconIndicator extends WatchUi.Drawable {
         infoFont = newInfoFont;
     }
 
+    function setColor(newColor) {
+        color = newColor;
+    }
+
     function draw(dc as Dc) as Void {
         if (iconsFont != null && infoFont != null){
             var iconDim = dc.getTextDimensions(iconText, iconsFont);

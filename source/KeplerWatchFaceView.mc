@@ -22,13 +22,12 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
         WatchFace.initialize();
 
         background = new Background({
-            :identifier => "Background" /* ,
-            :bgImage => WatchUi.loadResource(Rez.Drawables.Kepler22b)*/
+            :identifier => "Background"
         });
         clockView = new ClockDrawable({ :identifier => "Clock"});
         batteryIndicator = new BatteryIndicator({
             :identifier => "Battery",
-            :color => 0x55ffff,
+            :color => getApp().getProperty("PrimaryColor") as Number,
             :refX => 0.5,
             :refY => 0.05,
             :iconsFont => ICONS_FONT,
@@ -36,7 +35,7 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
         });
         stepsIndicator = new StepsIndicator({
             :identifier => "Steps",
-            :color => 0xff5500,
+            :color => getApp().getProperty("SecondaryColor") as Number,
             :refX => 0.25,
             :refY =>0.7,
             :iconsFont => ICONS_FONT,
@@ -44,7 +43,7 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
         });
         caloriesIndicator = new CaloriesIndicator({
             :identifier => "Calories",
-            :color => 0xff0000,
+            :color => getApp().getProperty("SecondaryColor") as Number,
             :refX => 0.75,
             :refY =>0.7,
             :iconsFont => ICONS_FONT,
@@ -62,7 +61,6 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
 
     // Load your resources here
     function onLayout(dc as Dc) as Void {
-        //setLayout(Rez.Layouts.WatchFace(dc));
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -77,8 +75,11 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
         View.onUpdate(dc);
         background.draw(dc);
         clockView.draw(dc);
+        batteryIndicator.setColor(getApp().getProperty("PrimaryColor") as Number);
         batteryIndicator.draw(dc);
+        stepsIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
         stepsIndicator.draw(dc);
+        caloriesIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
         caloriesIndicator.draw(dc);
         bluetoothIndicator.draw(dc);
     }
