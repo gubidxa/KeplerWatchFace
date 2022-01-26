@@ -1,4 +1,8 @@
 <strings>
+    <string id="AppName">KeplerWatchFace</string>
+
+    <string id="Theme">Tema</string>
+
     <string id="MonthJan">gennaio</string>
     <string id="MonthFeb">febbraio</string>
     <string id="MonthMar">marzo</string>
