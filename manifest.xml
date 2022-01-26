@@ -17,6 +17,7 @@
             <iq:product id="approachs60"/>
             <iq:product id="approachs62"/>
             <iq:product id="legacyherocaptainmarvel"/>
+            <iq:product id="d2air"/>
             <iq:product id="d2bravo"/>
             <iq:product id="d2bravo_titanium"/>
             <iq:product id="d2charlie"/>
@@ -61,7 +62,9 @@
             <iq:product id="marqexpedition"/>
             <iq:product id="marqgolfer"/>
             <iq:product id="legacysagarey"/>
+            <iq:product id="venu"/>
             <iq:product id="venu2s"/>
+            <iq:product id="venud"/>
             <iq:product id="venusq"/>
             <iq:product id="venusqm"/>
             <iq:product id="vivoactive3"/>
