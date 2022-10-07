@@ -2,8 +2,9 @@
     <setting propertyKey="@Properties.Theme" title="@Strings.Theme">
         <settingConfig type="list">
             <listEntry value="0">@Strings.Kepler22b</listEntry>
-            <listEntry value="1">@Strings.Kepler51d</listEntry>
-            <listEntry value="2">@Strings.Kepler69c</listEntry>
+            <listEntry value="1">@Strings.Kepler45b</listEntry>
+            <listEntry value="2">@Strings.Kepler56d</listEntry>
+            <listEntry value="3">@Strings.Kepler68b</listEntry>
         </settingConfig>
     </setting>
 </settings>

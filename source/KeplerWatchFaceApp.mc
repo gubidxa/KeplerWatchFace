@@ -37,11 +37,15 @@ class KeplerWatchFaceApp extends Application.AppBase {
             lastTheme = theme;
             switch (lastTheme) {
                 case 1:
+                    primaryColor = 0xfea65c;
+                    secondaryColor = 0xffffaa;
+                    break;
+                case 2:
                     primaryColor = 0xffaaff;
                     secondaryColor = 0xff00aa;
                     break;
-                case 2:
-                    primaryColor = 0x00aaff;
+                case 3:
+                    primaryColor = 0xfaa69c;
                     secondaryColor = 0xffffaa;
                     break;
                 default:
@@ -52,7 +56,6 @@ class KeplerWatchFaceApp extends Application.AppBase {
         getApp().setProperty("PrimaryColor", primaryColor);
         getApp().setProperty("SecondaryColor", secondaryColor);
     }
-
 }
 
 function getApp() as KeplerWatchFaceApp {

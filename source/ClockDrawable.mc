@@ -55,11 +55,12 @@ class ClockDrawable extends WatchUi.Drawable {
         var minData = clockTime.min.format("%02d");
 
         var hoursDim = dc.getTextDimensions(hourData, HOURS_FONT);
-        var hoursX = dc.getWidth() * 0.485;
+        var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
+
+        var hoursX = dc.getWidth() - (minutesDim[0] + 5);
         var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - xOffset;
 
-        var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
-        var minutesX = dc.getWidth() * 0.515;
+        var minutesX = dc.getWidth() - 5;
         var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - xOffset;
 
         var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
@@ -68,12 +69,12 @@ class ClockDrawable extends WatchUi.Drawable {
         var dateData = Lang.format("$1$ $2$ $3$", [dayOfWeek, today.day.format("%02d"), month]);
 
         var dateDim = dc.getTextDimensions(dateData, DATE_FONT);
-        var dateX = dc.getWidth() * 0.5;
-        var dateY = (dc.getHeight() * 0.60 - dateDim[1] / 2.0) + 3;
+        var dateX = dc.getWidth() - 5;
+        var dateY = (dc.getHeight() * 0.6 - dateDim[1] / 2.0) + 3;
 
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(dateX, dateY, DATE_FONT, dateData, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(dateX, dateY, DATE_FONT, dateData, Graphics.TEXT_JUSTIFY_RIGHT);
         dc.drawText(hoursX, hoursY, HOURS_FONT, hourData, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(minutesX, minutesY, MINUTES_FONT, minData, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(minutesX, minutesY, MINUTES_FONT, minData, Graphics.TEXT_JUSTIFY_RIGHT);
     }
 }
