@@ -12,4 +12,4 @@ KeplerWatchFace is compatible for this languages: English, French, Italian, Port
 
 ### For download
 
-https://apps.garmin.com/en-US/apps/62f0361d-6464-4e62-aac3-7cfd618f5a68
+https://apps.garmin.com/en-US/apps/2cbc15ae-41ff-4f0d-86f1-c3931cdad108
