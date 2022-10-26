@@ -12,17 +12,17 @@ class IconIndicator extends WatchUi.Drawable {
     private var iconsFont = null;
     private var infoFont = null;
     protected var color = null;
-    private var refX = null;
-    private var refY = null;
+    private var referenceX = null;
+    private var referenceY = null;
 
     function initialize(params as Dictionary) {
         Drawable.initialize(params);
 
-        refX = params[:refX] as Number;
-        refY = params[:refY] as Number;
-        color = params[:color];
-        iconsFont = params[:iconsFont];
-        infoFont = params[:infoFont];
+        referenceX = params[:refX] as Number;
+        referenceY = params[:refY] as Number;
+        setColor(params[:color]);
+        setIconsFont(params[:iconsFont]);
+        setInfoFont(params[:infoFont]);
     }
 
     function setIconsFont(newIconsFont) {
@@ -38,19 +38,17 @@ class IconIndicator extends WatchUi.Drawable {
     }
 
     function draw(dc as Dc) as Void {
-        if (iconsFont != null && infoFont != null){
-            var iconDim = dc.getTextDimensions(iconText, iconsFont);
-            var infoDim = dc.getTextDimensions(infoText, infoFont);
+        var iconDim = dc.getTextDimensions(iconText, iconsFont);
+        var infoDim = dc.getTextDimensions(infoText, infoFont);
 
-            width = iconDim[0] + infoDim[0];
-            height = iconDim[1];
+        width = iconDim[0] + infoDim[0];
+        height = iconDim[1];
 
-            locX = dc.getWidth() * refX - width / 2.0;
-            locY = dc.getHeight() * refY;
+        var locX = dc.getWidth() * referenceX - width / 2.0;
+        var locY = dc.getHeight() * referenceY;
 
-            dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(locX, locY, iconsFont, iconText, Graphics.TEXT_JUSTIFY_LEFT);
-            dc.drawText(locX + iconDim[0], locY, infoFont, infoText, Graphics.TEXT_JUSTIFY_LEFT);
-        }
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(locX, locY, iconsFont, iconText, Graphics.TEXT_JUSTIFY_LEFT);
+        dc.drawText(locX + iconDim[0], locY, infoFont, infoText, Graphics.TEXT_JUSTIFY_LEFT);
     }
 }

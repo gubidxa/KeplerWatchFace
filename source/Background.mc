@@ -10,7 +10,8 @@ class Background extends WatchUi.Drawable {
     }
 
     function draw(dc as Dc) as Void {
-        dc.setColor(Graphics.COLOR_TRANSPARENT, getApp().getProperty("BackgroundColor") as Number);
+        dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_BLACK);
+        dc.clear();
         var theme = getApp().getProperty("Theme") as Number;
         var image = WatchUi.loadResource(Rez.Drawables.Kepler22b);
         switch (theme) {

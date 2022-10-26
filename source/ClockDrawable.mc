@@ -45,36 +45,42 @@ class ClockDrawable extends WatchUi.Drawable {
     }
 
     function draw(dc as Dc) as Void {
-        var clockTime = System.getClockTime();
+        try{
+            var clockTime = System.getClockTime();
 
-        var hour = clockTime.hour;
-        hour = (!deviceSettings.is24Hour && hour > 12)?
-            hour - 12 : hour;
+            var hour = clockTime.hour;
+            hour = (!deviceSettings.is24Hour && hour > 12)?
+                hour - 12 : hour;
 
-        var hourData = hour.format("%02d");
-        var minData = clockTime.min.format("%02d");
+            var hourData = hour.format("%02d");
+            var minData = clockTime.min.format("%02d");
 
-        var hoursDim = dc.getTextDimensions(hourData, HOURS_FONT);
-        var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
+            var hoursDim = dc.getTextDimensions(hourData, HOURS_FONT);
+            var minutesDim = dc.getTextDimensions(minData, MINUTES_FONT);
 
-        var hoursX = dc.getWidth() - (minutesDim[0] + 5);
-        var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - xOffset;
+            var hoursX = dc.getWidth() - (minutesDim[0] + 5);
+            var hoursY = dc.getHeight() * 0.45 - hoursDim[1] / 2.0 - xOffset;
 
-        var minutesX = dc.getWidth() - 5;
-        var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - xOffset;
+            var minutesX = dc.getWidth() - 5;
+            var minutesY = dc.getHeight() * 0.45 - minutesDim[1] / 2.0 - xOffset;
 
-        var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
-        var dayOfWeek = DAYS_FMT[today.day_of_week - 1];
-        var month = MONTHS_FMT[today.month - 1];
-        var dateData = Lang.format("$1$ $2$ $3$", [dayOfWeek, today.day.format("%02d"), month]);
+            var today = Gregorian.info(Time.now(), Time.FORMAT_SHORT);
+            var dayOfWeek = DAYS_FMT[today.day_of_week - 1];
+            var month = MONTHS_FMT[today.month - 1];
+            var dateData = Lang.format("$1$ $2$ $3$", [dayOfWeek, today.day.format("%02d"), month]);
 
-        var dateDim = dc.getTextDimensions(dateData, DATE_FONT);
-        var dateX = dc.getWidth() - 5;
-        var dateY = (dc.getHeight() * 0.6 - dateDim[1] / 2.0) + 3;
+            var dateDim = dc.getTextDimensions(dateData, DATE_FONT);
+            var dateX = dc.getWidth() - 5;
+            var dateY = (dc.getHeight() * 0.6 - dateDim[1] / 2.0) + 3;
 
-        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(dateX, dateY, DATE_FONT, dateData, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(hoursX, hoursY, HOURS_FONT, hourData, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(minutesX, minutesY, MINUTES_FONT, minData, Graphics.TEXT_JUSTIFY_RIGHT);
+            dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(dateX, dateY, DATE_FONT, dateData, Graphics.TEXT_JUSTIFY_RIGHT);
+            dc.drawText(hoursX, hoursY, HOURS_FONT, hourData, Graphics.TEXT_JUSTIFY_RIGHT);
+            dc.drawText(minutesX, minutesY, MINUTES_FONT, minData, Graphics.TEXT_JUSTIFY_RIGHT);
+        } catch (ex instanceof Lang.Exception) {
+            var msg = ex.getErrorMessage();
+            System.println(msg);
+            System.error(msg);
+        }
     }
 }
