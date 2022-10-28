@@ -9,8 +9,8 @@ class IconIndicator extends WatchUi.Drawable {
 
     protected var iconText = null;
     protected var infoText = "";
-    private var iconsFont = null;
-    private var infoFont = null;
+    protected var iconsFont = null;
+    protected var infoFont = null;
     protected var color = null;
     private var referenceX = null;
     private var referenceY = null;
@@ -44,8 +44,8 @@ class IconIndicator extends WatchUi.Drawable {
         width = iconDim[0] + infoDim[0];
         height = iconDim[1];
 
-        var locX = dc.getWidth() * referenceX - width / 2.0;
-        var locY = dc.getHeight() * referenceY;
+        locX = dc.getWidth() * referenceX - width / 2.0;
+        locY = dc.getHeight() * referenceY;
 
         dc.setColor(color, Graphics.COLOR_TRANSPARENT);
         dc.drawText(locX, locY, iconsFont, iconText, Graphics.TEXT_JUSTIFY_LEFT);

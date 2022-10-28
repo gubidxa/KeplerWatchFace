@@ -42,7 +42,7 @@ class KeplerWatchFaceApp extends Application.AppBase {
                     break;
                 case 2:
                     primaryColor = 0xffaaff;
-                    secondaryColor = 0xff00aa;
+                    secondaryColor = 0xff55ff;
                     break;
                 case 3:
                     primaryColor = 0xfaa69c;

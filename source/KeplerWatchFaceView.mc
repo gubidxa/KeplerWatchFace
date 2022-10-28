@@ -72,16 +72,21 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
     // Update the view
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
-        View.onUpdate(dc);
-        background.draw(dc);
-        clockView.draw(dc);
-        batteryIndicator.setColor(getApp().getProperty("PrimaryColor") as Number);
-        batteryIndicator.draw(dc);
-        stepsIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
-        stepsIndicator.draw(dc);
-        caloriesIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
-        caloriesIndicator.draw(dc);
-        bluetoothIndicator.draw(dc);
+        try{
+            View.onUpdate(dc);
+            background.draw(dc);
+            clockView.draw(dc);
+            batteryIndicator.setColor(getApp().getProperty("PrimaryColor") as Number);
+            batteryIndicator.draw(dc);
+            stepsIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
+            stepsIndicator.draw(dc);
+            caloriesIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
+            caloriesIndicator.draw(dc);
+            bluetoothIndicator.draw(dc);
+        } catch (ex instanceof Lang.Exception) {
+            System.println(ex.getErrorMessage());
+            throw ex;
+        }
     }
 
     // Called when this View is removed from the screen. Save the
