@@ -39,7 +39,7 @@ class ClockDrawable extends WatchUi.Drawable {
     private var deviceSettings = System.getDeviceSettings();
     private var xOffset = 1;
 
-    function initialize(params) {
+    function initialize(params as Dictionary) {
         Drawable.initialize(params);
         xOffset = deviceSettings.screenHeight == 218 && deviceSettings.screenWidth == 218 ? 5 : 1;
     }
