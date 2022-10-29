@@ -8,54 +8,46 @@ import Toybox.ActivityMonitor;
 
 class KeplerWatchFaceView extends WatchUi.WatchFace {
 
-    private const ICONS_FONT = WatchUi.loadResource(Rez.Fonts.IconsFont);
-    private const INFO_FONT = WatchUi.loadResource(Rez.Fonts.PrimaryIndicatorFont);
-
-    private var background = null;
-    private var clockView = null;
-    private var batteryIndicator = null;
-    private var stepsIndicator = null;
-    private var caloriesIndicator = null;
-    private var bluetoothIndicator = null;
+    private var background as Background;
+    private var clockView as ClockDrawable;
+    private var batteryIndicator as BatteryIndicator;
+    private var stepsIndicator as StepsIndicator;
+    private var caloriesIndicator as CaloriesIndicator;
+    private var bluetoothIndicator as BluetoothIndicator;
 
     function initialize() {
         WatchFace.initialize();
 
+        var theme = Theme.getCurrent();
+
         background = new Background({
-            :identifier => "Background"
+            :identifier => "Background",
+            :color => theme.getBackgroundColor()
         });
         clockView = new ClockDrawable({ :identifier => "Clock"});
         batteryIndicator = new BatteryIndicator({
             :identifier => "Battery",
-            :color => getApp().getProperty("PrimaryColor") as Number,
+            :color => theme.getPrimaryColor(),
             :refX => 0.5,
-            :refY => 0.05,
-            :iconsFont => ICONS_FONT,
-            :infoFont => INFO_FONT
+            :refY => 0.05
         });
         stepsIndicator = new StepsIndicator({
             :identifier => "Steps",
-            :color => getApp().getProperty("SecondaryColor") as Number,
+            :color => theme.getSecondaryColor(),
             :refX => 0.25,
-            :refY =>0.7,
-            :iconsFont => ICONS_FONT,
-            :infoFont => INFO_FONT
+            :refY => 0.7
         });
         caloriesIndicator = new CaloriesIndicator({
             :identifier => "Calories",
-            :color => getApp().getProperty("SecondaryColor") as Number,
+            :color => theme.getSecondaryColor(),
             :refX => 0.75,
-            :refY =>0.7,
-            :iconsFont => ICONS_FONT,
-            :infoFont => INFO_FONT
+            :refY => 0.7
         });
         bluetoothIndicator = new BluetoothIndicator({
             :identifier => "Bluetooth",
             :color => 0xffffff,
             :refX => 0.5,
-            :refY => 0.85,
-            :iconsFont => ICONS_FONT,
-            :infoFont => INFO_FONT
+            :refY => 0.85
         });
     }
 
@@ -69,6 +61,19 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
     function onShow() as Void {
     }
 
+    function themeUpdated() as Void {
+        try{
+            var theme = Theme.getCurrent();
+            background.setColor(theme.getBackgroundColor());
+            batteryIndicator.setColor(theme.getPrimaryColor());
+            stepsIndicator.setColor(theme.getSecondaryColor());
+            caloriesIndicator.setColor(theme.getSecondaryColor());
+        } catch (ex instanceof Lang.Exception) {
+            System.println(ex.getErrorMessage());
+            throw ex;
+        }
+    }
+
     // Update the view
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
@@ -76,11 +81,8 @@ class KeplerWatchFaceView extends WatchUi.WatchFace {
             View.onUpdate(dc);
             background.draw(dc);
             clockView.draw(dc);
-            batteryIndicator.setColor(getApp().getProperty("PrimaryColor") as Number);
             batteryIndicator.draw(dc);
-            stepsIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
             stepsIndicator.draw(dc);
-            caloriesIndicator.setColor(getApp().getProperty("SecondaryColor") as Number);
             caloriesIndicator.draw(dc);
             bluetoothIndicator.draw(dc);
         } catch (ex instanceof Lang.Exception) {

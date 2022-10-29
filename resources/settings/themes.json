@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Kepler 22b",
+        "backgroundColor": "0x000000",
+        "primaryColor": "0x55ffff",
+        "secondaryColor": "0x00ffaa"
+    },
+    {
+        "name": "Kepler 45b",
+        "backgroundColor": "0x000000",
+        "primaryColor": "0xfea65c",
+        "secondaryColor": "0xffffaa"
+    },
+    {
+        "name": "Kepler 56d",
+        "backgroundColor": "0x000000",
+        "primaryColor": "0xffaaff",
+        "secondaryColor": "0xff55ff"
+    },
+    {
+        "name": "Kepler 68b",
+        "backgroundColor": "0x000000",
+        "primaryColor": "0xfaa69c",
+        "secondaryColor": "0xffffaa"
+    }
+]
